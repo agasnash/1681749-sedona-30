@@ -1,7 +1,7 @@
 # Личный проект «Седона»
 
 * Студент: [Gasnas Andrei](https://up.htmlacademy.ru/htmlcss/30/user/1681749).
-* Наставник: `Неизвестно`.
+* Наставник: [Тина Кузьменко](https://github.com/tinakuzmenko).
 
 ---
 
