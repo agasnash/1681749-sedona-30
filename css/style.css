@@ -20,6 +20,7 @@
   --copy-active: #BDBBBC;
   --opacity-black: rgba(0, 0, 0, 0.3);
   --opacity-white: rgba(255, 255, 255, 0.3);
+  --opacity-white-footer: rgba(255, 255, 255, 0.9);
 }
 
 /* Globals */
@@ -75,31 +76,52 @@ img {
 
 .main-header {
   display: grid;
+  position: relative;
 }
 
 /* Logo */
 .main-header-logo {
-  order: 1;
-  justify-self: center;
+  order: 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -69px;
 }
 
 /* Navigation */
 .navigation {
-  display: grid;
-  grid-template-columns: 1fr min-content;
-  width: 1180px;
-  margin: 0 auto;
-  padding: 0 10px;
+  display: flex;
+  align-items: center
 }
 
 .navigation-list {
+  width: 100%;
+  padding: 15px 73px;
+  font-weight: 700;
   font-size: 14px;
   line-height: 26px;
-  font-weight: 700;
-  color: var(--basic-black);
-  margin: 0;
-  padding: 0;
+  text-transform: uppercase;
   list-style: none;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap
+}
+
+.navigation-item {
+  width: 227px;
+}
+
+.navigation-item:first-child,
+.navigation-item:nth-child(2) {
+  text-align: left;
+}
+
+.navigation-item:nth-child(3),
+.navigation-item:nth-child(4) {
+  text-align: right
+}
+
+.navigation-items-right {
+  margin-left: auto
 }
 
 .navigation-list a {
@@ -123,21 +145,21 @@ img {
 /* Welcome */
 .welcome-section {
   background-image: url("../img/welcome.svg"), url("../img/background-photo.jpg");
-  background-position: top center, center center;
+  background-position: center center, center center;
   background-repeat: no-repeat, no-repeat;
   width: 100%;
-  height: 509px;
+  min-height: 509px;
   margin: 0;
   padding: 0;
 }
 
 /* Features */
-.feature-container-first {
+.feature-container-city {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
 
-.feature-container-second {
+.feature-container-bridge {
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
@@ -155,6 +177,10 @@ img {
   padding: 0;
 }
 
+.features-list {
+  margin-top: 50px;
+}
+
 .feature-item,
 .feature-item-large,
 .benefit-item,
@@ -163,7 +189,7 @@ img {
 }
 
 .title, .search {
-  padding: 50px 290px;
+  padding: 50px 315px 0;
 }
 
 .title h2 {
@@ -202,6 +228,11 @@ img {
 
 .last-features {
   background-color: var(--secondary-grey);
+}
+
+.feature-number::before,
+.feature-number::after {
+  content: " — ";
 }
 
 .benefit-item {
@@ -247,6 +278,7 @@ img {
 
 .button-search-hotel {
   width: 568px;
+  margin-top: 30px;
   padding: 30px 0 30px 0;
   font-size: 21px;
   font-weight: 700;
@@ -258,6 +290,7 @@ img {
   background-color: var(--basic-brown);
   border: none;
   cursor: pointer;
+  outline: none;
 }
 
 .button-search-hotel:hover,
@@ -268,14 +301,21 @@ img {
 .button-search-hotel:active {
   color: var(--opacity-white);
   background-color: var(--active-brown);
-  outline: none;
+}
+
+/* Map */
+.map {
+  margin-bottom: -120px;
 }
 
 /* Page footer */
 .page-footer {
+  background-color: var(--opacity-white-footer);
+  min-height: 120px;
   color: var(--basic-black);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  z-index: 1
 }
 
 .contacts {
@@ -283,22 +323,39 @@ img {
   font-weight: 700;
   line-height: 26px;
   text-align: center;
+  justify-content: center;
+  padding-top: 30px;
 }
 
-.footer-social {
-  text-align: center;
-}
-
-.footer-social ul {
-  list-style: none;
+.contacts p {
+  margin: 0 0 10px 0;
 }
 
 /* Social button */
+.footer-social {
+  justify-self: center;
+  text-align: center;
+  padding-top: 36px;
+}
+
+.footer-social ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 141px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
 .social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: inherit;
   width: 46px;
   height: 48px;
-  display: inline-block;
+  margin-right: -7px;
   background-color: var(--basic-blue);
 }
 
@@ -318,6 +375,9 @@ img {
 
 /*copyright */
 .footer-copyright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--basic-black);
   font-size: 14px;
   line-height: 26px;
@@ -327,6 +387,7 @@ img {
 
 .logo-htmlacademy svg {
   fill: var(--copy-main);
+  padding-left: 8px;
 }
 
 .logo-htmlacademy:hover svg,
@@ -340,18 +401,25 @@ img {
 
 /* Search form */
 .search-popup {
+  width: 568px;
+  background-color: var(--basic-white);
+  box-shadow: 0px 7px 15px rgba(0, 1, 1, 0.15);
+  margin: auto;
   font-weight: 700;
   font-size: 14px;
   line-height: 26px;
 }
 
 .search-form {
-  width: 568px;
-  background-color: var(--basic-white);
-  box-shadow: 0px 7px 15px rgba(0, 1, 1, 0.15);
-  margin: auto;
-  text-align: center;
-  padding: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 55px
+}
+
+.search-form p {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 30px;
 }
 
 .search-form input[type="date"],
@@ -364,11 +432,13 @@ img {
   background-color: var(--form-grey);
   border: none;
   box-sizing: border-box;
+  padding-left: 13px;
 }
 
 .search-form input[type="number"] {
   width: 38px;
   height: 38px;
+  margin-left: 38px;
 }
 
 .search-form input:hover {
@@ -392,6 +462,26 @@ img {
   -moz-appearance: textfield;
 }
 
+.search-item-date-in label {
+  margin-right: 24px;
+}
+
+.search-item-date-out label {
+  margin-right: 20px;
+}
+
+.search-item-adults label {
+  margin-right: 40px;
+}
+
+.search-item-kids label {
+  margin-right: 26px;
+}
+
+.search-form p.search-item-kids {
+  margin-left: 85px;
+}
+
 .button-counter {
   width: 38px;
   height: 38px;
@@ -399,6 +489,11 @@ img {
   background-color: var(--form-grey);
   border: none;
   cursor: pointer;
+  position: absolute;
+}
+
+.button-less {
+  padding-bottom: 6px;
 }
 
 .button-counter,
@@ -430,6 +525,7 @@ img {
   background-color: var(--basic-blue);
   border: none;
   cursor: pointer;
+  outline: none;
 }
 
 .button-search:hover,
@@ -440,7 +536,6 @@ img {
 .button-search:active {
   color: var(--opacity-white);
   background-color: var(--active-blue);
-  outline: none;
 }
 
 .button-calendar {
@@ -449,6 +544,7 @@ img {
   background-color: var(--form-grey);
   border: none;
   cursor: pointer;
+  position: absolute;
 }
 
 /* Filters */
