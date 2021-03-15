@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link href="css/normalize.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
 
   <link rel="icon" href="favicon.ico">
   <link rel="icon" href="img/favicons/favicon.svg" type="image/svg+xml">
@@ -72,7 +72,7 @@
             <div class="feature-container-bridge">
               <img src="img/image-2.png" width="800" height="256" alt="Мост дьявола">
               <div class="feature-item-large">
-                <h3>Там есть мост дьявола</h3>
+                <h3>Там есть <br /> мост дьявола</h3>
                 <p class="feature-number">№2</p>
                 <p>Да, по нему можно пройти! Если конечно вы осмелитесь</p>
               </div>
@@ -93,9 +93,9 @@
               <li class="feature-item">
                 <h3>Мало туристов</h3>
                 <p class="feature-number">№5</p>
-                <p>Большинство едет в гранд каньон и толпится там</p>
+                <p>Большинство едет в гранд каньон <br /> и толпится там</p>
+              </li>
             </ul>
-          </li>
           </li>
         </ul>
       </section>
@@ -103,7 +103,7 @@
       <section class="search">
         <h2>Заинтересовались?</h2>
         <p class="subtitle">Укажите предполагаемые даты поездки, <br /> и мы покажем вам лучшие предложения гостиниц в Седоне</p>
-        <button class="button-search-hotel" type="button">Пойск гостиниц в Седоне</button>
+        <button class="button-search-hotel" type="button">Поиск гостиницы в Седоне</button>
       </section>
 
       <section class="search-popup">
@@ -139,7 +139,7 @@
                   <rect width="12" height="3" />
                 </svg>
               </button>
-              <input id="old" type="number" name="old">
+              <input id="old" type="number" name="old" min="0" value="2">
               <button class="button-counter" type="button">
                 <svg width="11" height="11">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M4.23086 6.76932V11H6.76932V6.76932H11V4.23086H6.76932V0H4.23085V4.23086H0V6.76932H4.23086Z" />
@@ -153,7 +153,7 @@
                   <rect width="12" height="3" />
                 </svg>
               </button>
-              <input id="kids" type="number" name="kids">
+              <input id="kids" type="number" name="kids" min="0" value="0">
               <button class="button-counter" type="button">
                 <svg width="11" height="11">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M4.23086 6.76932V11H6.76932V6.76932H11V4.23086H6.76932V0H4.23085V4.23086H0V6.76932H4.23086Z" />
@@ -177,7 +177,7 @@
   <footer class="page-footer">
     <div class="contacts">
       <p>#VISITSEDONA</p>
-      <p>ТЕЛ: +7(495) 666-01-66</p>
+      <a href="tel:007495-666-01-66">ТЕЛ: +7(495) 666-01-66</a>
     </div>
     <div class="footer-social">
       <ul>
@@ -219,6 +219,8 @@
       </a>
     </p>
   </footer>
+
+  <script src="js/search.min.js"></script>
 
 </body>
 

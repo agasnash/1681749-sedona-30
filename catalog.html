@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link href="css/normalize.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
 
   <link rel="icon" href="favicon.ico">
   <link rel="icon" href="img/favicons/favicon.svg" type="image/svg+xml">
@@ -35,23 +35,23 @@
 
       <h1 class="visually-hidden">Гостиницы туристического городока «Седона»</h1>
 
-      <section class="filtres">
+      <section class="filters">
         <h2 class="visually-hidden">Фильтр жилья</h2>
         <form class="filter-form" method="get" action="https://echo.htmlacademy.ru">
 
           <fieldset class="filter-set">
             <legend>Инфраструктура:</legend>
             <ul class="filter-list">
-              <li class="filter-option filter-checkbox">
+              <li class="filter-option filter-checkbox" tabindex="0">
                 <input class="visually-hidden filter-input-checkbox" type="checkbox" name="pool" id="filter-pool" checked>
                 <label for="filter-pool">Бассейн</label>
               </li>
-              <li class="filter-option filter-checkbox">
-                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="parking" id="filter-parking" checked>
+              <li class="filter-option filter-checkbox" tabindex="0">
+                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="parking" id="filter-parking">
                 <label for="filter-parking">Парковка</label>
               </li>
-              <li class="filter-option filter-checkbox">
-                <input class="visually-hidden filter-input-checkbox filter-input" type="checkbox" name="wifi" id="filter-wifi" checked>
+              <li class="filter-option filter-checkbox" tabindex="0">
+                <input class="visually-hidden filter-input-checkbox filter-input" type="checkbox" name="wifi" id="filter-wifi">
                 <label for="filter-wifi">Wi-Fi</label>
               </li>
             </ul>
@@ -60,15 +60,15 @@
           <fieldset class="filter-set">
             <legend>Тип жилья:</legend>
             <ul class="filter-list">
-              <li class="filter-option filter-checkbox">
+              <li class="filter-option filter-checkbox" tabindex="0">
                 <input class="visually-hidden filter-input-checkbox" type="checkbox" name="hotel" id="filter-hotel" checked>
                 <label for="filter-hotel">Гостиница</label>
               </li>
-              <li class="filter-option filter-checkbox">
+              <li class="filter-option filter-checkbox" tabindex="0">
                 <input class="visually-hidden filter-input-checkbox" type="checkbox" name="motel" id="filter-motel" checked>
                 <label for="filter-motel">Мотель</label>
               </li>
-              <li class="filter-option filter-checkbox">
+              <li class="filter-option filter-checkbox" tabindex="0">
                 <input class="visually-hidden filter-input-checkbox" type="checkbox" name="apartaments" id="filter-apartaments" checked>
                 <label for="filter-apartaments">Апартаменты</label>
               </li>
@@ -80,7 +80,7 @@
               <legend>Стоимость в сутки (Р):</legend>
               <div class="price-controls">
                 <label class="min-price">
-                  От <input type="number" name="min-price" value="0">
+                  От <input type="number" name="min-price" min="0" value="0">
                 </label>
                 <label class="max-price">
                   До <input type="number" name="max-price" value="3000">
@@ -119,12 +119,12 @@
 
         <ul class="results-show">
           <li>
-            <a class="sort-arrange sort-ascending sort-arrange-active" href="#">
+            <a class="sort-arrange sort-ascending" href="#">
               <span class="visually-hidden">Ascending</span>
             </a>
           </li>
           <li>
-            <a class="sort-arrange sort-descending" href="#">
+            <a class="sort-arrange sort-descending sort-arrange-active" href="#">
               <span class="visually-hidden">Descending</span>
             </a>
           </li>
@@ -184,7 +184,7 @@
               <a class="link-housing link-reserve" href="#">Забронировать</a>
             </div>
             <div class="housing-raiting">
-              <div class="stars stars-three">
+              <div class="stars stars-two">
                 <span class="visually-hidden">3 Звезды</span>
               </div>
               <p class="rating">Рейтинг: 9,2</p>
