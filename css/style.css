@@ -24,6 +24,7 @@
   --opacity-white-footer: rgba(255, 255, 255, 0.9);
   --opacity-grey: rgba(171, 171, 171, 0.3);
   --shadow: rgba(0, 1, 1, 0.15);
+  --shadow-body: rgba(0, 1, 1, 0.2);
 }
 
 /* Globals */
@@ -37,7 +38,7 @@
   line-height: 26px;
   text-transform: uppercase;
   background-color: var(--form-grey);
-  box-shadow: 0px 5px 15px rgba(0, 1, 1, 0.2);
+  box-shadow: 0px 5px 15px var(--shadow-body);
   min-height: 100%;
   display: grid;
   grid-template-rows: min-content 1fr min-content;
@@ -158,35 +159,64 @@ img {
 
 /* Features */
 .title {
-  padding: 25px 315px 39px;
+  padding: 21px 315px 39px;
 }
 
-.title h2 {
+.title p:first-child {
   font-size: 21px;
+  font-weight: 700;
   line-height: 26px;
-  padding-bottom: 28px;
+  padding-bottom: 26px;
+}
+
+.feature-city {
+  grid-area: city;
+}
+
+.feature-bridge {
+  grid-area: bridge;
+}
+
+.feature-area {
+  grid-area: area;
+}
+
+.feature-road {
+  grid-area: road;
+}
+
+.feature-turists {
+  grid-area: turists;
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "city city city"
+    "bridge bridge bridge"
+    "area road turists"
 }
 
 .feature-container-city {
   display: grid;
+  grid-template-rows: auto;
   grid-template-columns: 1fr 2fr;
-  background-color: var(--basic-blue);
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .feature-container-bridge {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  background-color: var(--basic-blue);
-}
-
-.benefits-list, .last-features {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .features-list,
-.benefits-list,
-.last-features {
+.benefits-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -199,10 +229,15 @@ img {
   text-align: center;
 }
 
-.features h3 {
+.features h3,
+.benefit-item h4 {
   font-size: 21px;
   line-height: 21px;
   padding: 0 70px;
+}
+
+.benefit-item h4 {
+  margin-top: 23px;
 }
 
 .features p {
@@ -222,16 +257,14 @@ img {
   padding: 5px 0;
 }
 
-.feature-container img {
-  height: 256px;
-}
-
-.last-features li {
-  padding: 24px 60px 30px;
+.img-city img,
+.img-bridge img {
+  display: block;
 }
 
 .last-features {
   background-color: var(--secondary-grey);
+  padding: 27px 65px;
 }
 
 .feature-number::before,
@@ -240,7 +273,7 @@ img {
 }
 
 .benefit-item {
-  padding: 61px 50px 57px;
+  padding: 61px 50px 55px;
 }
 
 .benefit-item h3 {
@@ -249,7 +282,7 @@ img {
 
 .benefit-item p,
 .last-features p {
-  margin: 26px 0;
+  margin: 25px 0;
 }
 
 .benefit-item::before {
@@ -259,6 +292,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .benefit-home::before {
@@ -279,7 +313,7 @@ img {
 }
 
 .search {
-  padding: 25px 315px 0;
+  padding: 31px 315px 0;
 }
 
 .search h2 {
@@ -328,8 +362,8 @@ img {
 
 /* Map */
 .map {
-  background-image: url(../img/map.jpg);
-  margin-bottom: -119px;
+  background-image: url(../img/map.png);
+  margin-bottom: -120px;
   height: 594px;
 }
 
@@ -354,7 +388,7 @@ img {
 }
 
 .contacts p {
-  margin: 0 0 10px 0;
+  margin: -1px 0 9px 0;
 }
 
 .contacts a {
@@ -365,18 +399,13 @@ img {
 .footer-social {
   justify-self: center;
   text-align: center;
-  padding-top: 36px;
-  margin-left: -8px;
-}
-
-.footer-social ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 141px;
-  margin: 0 auto;
-  padding: 0;
+  padding: 21px 0;
   list-style: none;
+  margin-left: -8px;
 }
 
 .social-button {
@@ -473,6 +502,11 @@ img {
   border: none;
   box-sizing: border-box;
   padding-left: 13px;
+  border: 2px solid var(--form-grey);
+}
+
+.search-form input[type="date"] {
+  padding-right: 35px;
 }
 
 .search-form input[type="number"] {
@@ -665,7 +699,8 @@ img {
 }
 
 .filter-input-checkbox+label::before,
-.filter-input-checkbox:checked+label::before {
+.filter-input-checkbox:checked+label::before,
+.filter-input-checkbox:disabled+label::before {
   content: "";
   position: absolute;
   left: -40px;
@@ -680,6 +715,11 @@ img {
 .filter-input-checkbox:checked+label::before {
   width: 27px;
   background-image: url("../img/icons/checkbox-on.svg");
+}
+
+.filter-input-checkbox:disabled+label::before {
+  width: 23px;
+  background-image: url("../img/icons/checkbox-disabled.svg");
 }
 
 .filter-option:focus {
@@ -883,6 +923,7 @@ img {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .sort-ascending {
@@ -932,8 +973,20 @@ img {
   font-size: 21px;
   line-height: 26px;
   font-weight: 700;
-  color: var(--basic-black);
   margin: -6px 0;
+}
+
+.housing-title {
+  color: var(--basic-black);
+}
+
+.housing-title:hover,
+.housing-title:focus {
+  color: var(--basic-blue);
+}
+
+.housing-title:active {
+  color: var(--opacity-black);
 }
 
 .housing-item img {
@@ -1004,6 +1057,7 @@ img {
   color: var(--rating-grey);
   background-color: var(--form-grey);
   margin: 0;
+  vertical-align: middle;
 }
 
 .stars {
